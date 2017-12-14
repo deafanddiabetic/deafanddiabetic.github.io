@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .box{
+                display: inline-block;
+                width: 20%;
+                height: 20vh;
+                margin: 2vw;
+                background-color: yellow;
+                vertical-align: top;
+            }
+            
+        </style>
+    
+    
+    </head>
+    <body>
+        How many boxes would you like to add?
+        <input type="text" id="number" />
+        <button type="button" id="add">Add Boxes</button>
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+        <script src="common.js"></script>
+        <script>
+            $("#add").click(function(e){
+                var userNumber = $("#number").val() * 1;
+
+            
+            
+            for(var i = 0; i <userNumber; i++){
+                $("body").append("<div class='box'</div>");
+                
+            }
+            });
+            
+            var value = pTheorem
+        </script>
+        
+    
+    </body>
+
+
+</html>

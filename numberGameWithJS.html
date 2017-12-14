@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+    
+    
+    </head>
+    <body>
+        <label>Guess the number!</label>
+        <input id="guess" />
+        <button type="button" id="tryNumber">Guess:</button>
+        <br/>
+        <br/>
+        <br/>
+        <span id="result"></span>
+        <span id="counter"></span>
+        <br/>
+        <label>Min</label>
+        <input id="min" value="1" />
+        <label>Max</label>
+        <input id="max" value="100" />
+        <button type="button" id="resetButton">Reset Game</button>
+    
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+            crossorigin="anonymous"></script>
+    <script src="common1.js">
+        </script>
+        <script>
+        //have computer come up with a random number 1-100
+            var computerNumber = randomNumber(1, 100);
+            var counter = 0;
+            var gameOver = false;
+            //click on some button
+            $("#tryNumber").click(function(e){
+                if(gameOver){
+            //read in whatever the use guessed
+                var userNumber = $("#guess").val();
+                var diff =Math.abs(computerNumber - userNumber);
+            //compare their guess with computer number
+                if(computerNumber == userNumber){
+                   $("#result").text("You guessed correctly!");
+                }else if(diff <= 5){
+                         $("#result").text("Very close!");
+                 }else if(diff <= 15){
+                     $("#result").text("Warmer!");
+                         
+                         }
+                
+                
+                else
+                {
+                    $("#result").text("You're cold!");
+                }
+          counter++;
+                $("#counter").text("You've guessed "+counter+" time(s)");
+                }
+        });
+            $("#reset").click(function(e){
+                var min = $("min").val
+                computerNumber = randomNumber(min, max);
+            counter = 0;
+            gameOver = false;
+                $("#counter").text("");
+                $("#result").text("");
+                $("#guess").val("");
+            });
+        </script>
+    </body>
+
+
+
+
+</html>

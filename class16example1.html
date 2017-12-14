@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .circle1{
+               
+                width: 10vw;
+                height: 10vw;
+                border-radius: 50%;
+                border: 0.5vw solid black;
+                background-color: hotpink;
+                position: absolute;
+                top: 0;
+                left: 0;
+                box-sizing: border-box;
+                transition: 1s;
+            }
+       
+            
+    
+        </style>
+    
+    </head>
+        <body>
+            <div class ="circle1"></div>
+            <div class ="circle1"></div>
+            <div class ="circle1"></div>
+            <div class ="circle1"></div>
+            <div class ="circle1"></div>
+            
+           
+    
+    
+    
+    
+    </body>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+    <script src="common1.js"></script>
+    <script>
+        function moveCircle() {
+        var circleSize = $(".circle").width();
+        var maxWidth = $(document).width() - circleSize;
+        var maxHeight = $(document).height() - circleSize;
+            $(".circle1").each(function(){
+        var randomTop = randomNumber(0, maxHeight);
+        var randomLeft = randomNumber(0, maxWidth);
+        var rColor = randomColor();
+        $(this).css({
+            "top": randomTop,
+            "left": randomLeft,
+            "background-color": rColor
+        }, 1000);
+        });
+        }
+        setInterval(moveCircle, 1000);
+    </script>
+
+</html>

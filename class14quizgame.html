@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .correct {
+                color: green;
+            }
+            
+            .wrong {
+                color: red;
+            }
+        </style>
+    
+    </head>
+        <body>
+        <label class="questionText">What is 5 + 5?</label>
+            <input type="text" class="questionAnswer" answer="10"/>
+            <br/>
+            
+            <label class="questionText">What is 5*5</label>
+            <input type="text" class="questionAnswer" answer="25" />
+            <br/>
+            <label class="questionText">What is the fastest animal?</label>
+            <input type="text" class="questionAnswer" answer="cheetah" />
+            <button type="button" id="submitAnswers">Submit</button>
+            <span id="displayText"></span>
+    
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+            <script src="common.js"></script>
+            
+            <script>
+            // on click of submit button
+                $("#submitAnswers").click(function(e){
+                    var counter = 0;
+                    //get all the .questionAnswer inputs
+                    $(".questionAnswer").each(function(){
+                        
+                //get the user answer
+                        var userAnswer = $(this).val().toLowerCase();
+                //get the correct answer
+                        var correct = $(this).attr("answer").toLowerCase();
+                //compare the values
+                        if(userAnswer==correct){
+                           counter++; $(this).prev().removeClass("wrong").addClass("correct");
+                           //if correct make green 
+                        }else{
+                            $(this).prev().removeClass("correct").addClass("wrong");
+                          //if incorrect make label red  
+                        }
+                  
+                        
+                    })
+                    if(counter < $(".questionAnswer").length){
+                        $("#displayText").text("You got "+counter+" answers right!")
+                    }else{
+                    $("#displayText").text("You got all answers right!")
+                    }
+                });
+            
+                
+            </script>
+    </body>
+</html>
