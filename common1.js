@@ -4,6 +4,8 @@ function pyth(sideA, sideB){
     return sideC;
 }
 
+//pythagreon theorem//
+
 function randomNumber(min, max){
     min = parseInt(min);
     max = max * 1;
@@ -12,13 +14,16 @@ function randomNumber(min, max){
     return number;
 }
 
+//random number generator//
+
 function randomColor(){
     var red = randomNumber(0, 255);
     var green = randomNumber(0, 255);
     var blue = randomNumber(0, 255);
     return "rgb("+red+","+green+","+blue+")";
 }
-    //"rgb(###,###,###)"
+    //"rgb(###,###,###)"//
+//random color generator//
 
         $.fn.rainbowfy = function(options){
             var defaults = $.extend({
@@ -36,3 +41,17 @@ function randomColor(){
             }
             return this;
                 };
+
+//stuff//
+
+const kelvin= prompt('What is the Kelvin temperature today?');
+//kelvin will stay constant//
+const celsius= kelvin - 273;
+//celsius is 273 degrees less than kelvin//
+let fahrenheit = celsius * (9/5) + 32;
+//algorithm for farenheit from celsius//
+fahrenheit = Math.floor(fahrenheit);
+//rounding temp number from decimal//
+console.log(`The tempurature is ${fahrenheit} degrees fahrenheit. `);
+
+//temperature prompt script converting Kelvin//

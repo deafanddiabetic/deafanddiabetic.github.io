@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .list {
+            display: inline-block;
+            width: 33.33333%;
+            vertical-align: top;
+            box-sizing: border-box;
+            min-height: 70vh;
+        }
+        
+        .insideList {
+            width: 100%;
+            height: 70vh;
+            text-align: center;
+        }
+        
+        #current {
+            background-color: lightgreen;
+            border-right: 2px solid black;
+        }
+        
+        #grocery {
+            background-color: lightblue;
+            border-left: 2px solid black;
+            border-right: 2px solid black;
+        }
+        
+        #longTerm{
+            background-color: pink;
+            border-left: 2px solid black;
+        }
+    
+        
+    </style>
+    
+    
+    </head>
+<body>
+    <label>Task Name:</label>
+    <input id="task" />
+    <select id="list">
+        <option value="currentTasks">Current Task</option>
+    <option value="groceryTasks">Grocery List</option>
+<option value="longTermTasks">Long Term Task</option>
+    </select>
+    <button type="button" id="addTask">Add Task</button>
+    
+    <br/>
+    
+    <div class="list" id="current">
+        <h1>Current Task</h1></div>
+        <div class="insideList" id="currentTasks"></div><!--
+
+    --><div class="list" id="grocery">
+    <h1>Grocery List</h1></div>
+        <div class="insideList" id="groceryList"></div><!-- 
+
+    --><div class="list" id="longTerm">
+    <h1>Long Term Task</h1></div>
+        <div class="list" id="longTermList"></div>
+    
+    </body>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+<script>
+    $("#addTask").click(function(e){
+        console.log("Add button clicked!");
+        var taskName = $("#task").val();
+        var listChoice = $("#list").val();
+        console.log("Task Name is: "+taskName);
+        console.log("List Choice is "+listChoice);
+        if(listChoice == "Current Task"){
+            $("currentTasks").append("<div class='task'><span class='desc'>"+taskDesc+"</span><span
+class='remove'>x</span></div>)
+        }else if(listChoice == "Grocery List"){
+            $("groceryList").append("<div class='task'><span class='desc'>"+taskDesc+"</span><span class='remove'>x</span></div>)
+        }else if(listChoice == "Long Term Task"){
+            $("longTermList").append("<div class='task'><span class='desc'>"+taskDesc+"</span><span
+class='remove'>x</span></div>)
+        }
+        $("#"+listChoice).append($("currentTask").append("<div class='task'><span class='desc'>"+taskDesc+"</span><span
+class='remove'>x</span></div>)
+    });
+    
+    
+    </script>
+</html>
